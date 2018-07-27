@@ -25,7 +25,9 @@
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.6",
     "babel-loader": "^7.1.5",
+    "babel-plugin-flow-react-proptypes": "^24.0.1",
     "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-loader": "^2.1.0",
@@ -37,8 +39,11 @@
     "eslint-plugin-react": "^7.10.0",
     "nodemon": "^1.18.3",
     "pm2": "^3.0.3",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
     "rimraf": "^2.6.2",
     "webpack": "^4.16.2",
+    "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5"
   },
   "dependencies": {
