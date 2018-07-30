@@ -36,6 +36,7 @@
     "lodash-fp",
   ],
   "settings": {
+  "polyfills": ["fetch"],
     "import/resolver": {
       "webpack": {
         "config": "webpack.config.eslint.js"
