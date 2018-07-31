@@ -1,6 +1,6 @@
-
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
+import Helmet from 'react-helmet';
 import { Provider } from 'react-redux';
 import { StaticRouter } from 'react-router';
 
@@ -9,7 +9,7 @@ import App from '../shared/app';
 import { APP_CONTAINER_CLASS, STATIC_PATH, WDS_PORT } from '../shared/config';
 import { isProd } from '../shared/util';
 
-const renderApp = (location: string, plainPartialState: ?Object, routerContext: ?Object = {}) => {
+const renderApp = (location, plainPartialState, routerContext) => {
   const store = initStore(plainPartialState);
   const appHtml = ReactDOMServer.renderToString(
     <Provider store={store}>
@@ -18,12 +18,14 @@ const renderApp = (location: string, plainPartialState: ?Object, routerContext: 
       </StaticRouter>
     </Provider>
   );
+  const head = Helmet.rewind();
 
   return (
     `<!doctype html>
     <html>
       <head>
-        <title>FIX ME</title>
+        ${head.title}
+        ${head.meta}
         <link rel="stylesheet" href="${STATIC_PATH}/css/style.css">
       </head>
       <body>
@@ -32,7 +34,7 @@ const renderApp = (location: string, plainPartialState: ?Object, routerContext: 
           window.__PRELOADED_STATE__ = ${JSON.stringify(store.getState())}
         </script>
         <script src="${isProd ? STATIC_PATH : `http://localhost:${WDS_PORT}/dist`}/js/bundle.js"></script>
-      </body>
+    </body>
       </html>`
   );
 };
