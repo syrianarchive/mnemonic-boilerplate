@@ -13,6 +13,7 @@ import thunkMiddleware from 'redux-thunk';
 
 import App from '../shared/app';
 import helloReducer from '../shared/reducer/hello';
+import setUpSocket from './socket';
 import { APP_CONTAINER_SELECTOR } from '../shared/config';
 import { isProd } from '../shared/util';
 
@@ -49,3 +50,5 @@ if (module.hot) {
     ReactDOM.render(wrapApp(NextApp, store), rootEl);
   });
 }
+
+setUpSocket(store);
