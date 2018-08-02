@@ -1,2 +1,0 @@
-- What the ES-lint rules we'll use? done
-- What about Flow, jest, husky
